@@ -3,11 +3,155 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>App Support</title>
+  <title>DoseCue</title>
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 56px 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 2.2rem;
+      letter-spacing: -0.04em;
+    }
+
+    h2 {
+      margin-top: 32px;
+      font-size: 1.25rem;
+    }
+
+    p {
+      margin: 12px 0;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 24px;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    a.button {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      color: var(--accent);
+      text-decoration: none;
+      background: #ffffff;
+    }
+
+    a.button:hover {
+      background: #f9fafb;
+    }
+
+    .footer {
+      margin-top: 32px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 28px 12px;
+      }
+
+      .card {
+        padding: 24px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .links {
+        flex-direction: column;
+      }
+
+      a.button {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>App Support</h1>
-  <p>Welcome to our app support page.</p>
-  <p><a href="/privacy.html">Privacy Policy</a></p>
+  <main class="container">
+    <section class="card">
+      <h1>DoseCue</h1>
+      <p class="subtitle">A simple reminder and record-keeping app for medication, supplements, and care routines.</p>
+
+      <p>
+        DoseCue helps you create reminder plans, confirm actual completion times, record missed tasks,
+        and adjust upcoming reminders based on your real actions.
+      </p>
+
+      <p>
+        Unlike a fixed alarm, DoseCue is designed around dynamic scheduling. When you confirm a task,
+        the next reminder can be calculated from the time you actually completed it.
+      </p>
+
+      <h2>Designed for everyday use</h2>
+      <p>
+        DoseCue can help organize reminders for yourself, a family member, a child, or a pet.
+        Your core app data is designed to stay local-first, with optional Apple platform features such
+        as iCloud sync and iOS widgets.
+      </p>
+
+      <h2>Important notice</h2>
+      <p>
+        DoseCue is not a medical service. It does not provide medical advice, diagnosis, treatment,
+        medication recommendations, dosage recommendations, or emergency services. Always follow guidance
+        from a qualified doctor, pharmacist, veterinarian, or other appropriate professional.
+      </p>
+
+      <div class="links">
+        <a class="button" href="/privacy.html">Privacy Policy</a>
+        <a class="button" href="/terms.html">Terms & Medical Disclaimer</a>
+        <a class="button" href="mailto:tianfi@outlook.com">Contact Support</a>
+      </div>
+
+      <p class="footer">
+        Contact: <a href="mailto:tianfi@outlook.com">tianfi@outlook.com</a>
+      </p>
+    </section>
+  </main>
 </body>
 </html>
