@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoseCue - 技术支持</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f7;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .card h2 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .card h3 {
+            color: #555;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+        }
+
+        .card p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 12px;
+            margin-top: 2px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f9f9fb;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .faq-item h4 {
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .faq-item p {
+            margin: 0;
+            color: #666;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 20px;
+            background: #f9f9fb;
+            border-radius: 8px;
+        }
+
+        .contact-item .icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .contact-item h4 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .contact-item p {
+            color: #667eea;
+            margin: 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #5568d3;
+        }
+
+        .version-info {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        .language-toggle {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .language-toggle button {
+            background: white;
+            border: 2px solid #667eea;
+            color: #667eea;
+            padding: 8px 16px;
+            margin: 0 5px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .language-toggle button.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #ddd, transparent);
+            margin: 30px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            header {
+                padding: 30px 15px;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="language-toggle">
+            <button onclick="showChinese()">中文</button>
+            <button class="active" onclick="showEnglish()">English</button>
+        </div>
+
+        <!-- 中文内容 -->
+        <div id="content-zh" style="display: none;">
+            <div class="card">
+                <h2>关于 DoseCue</h2>
+                <p>DoseCue 是一款智能服药提醒应用，专为需要长期服药的人群设计。它不仅提供准时提醒，更重要的是支持<strong>动态顺延</strong>——当您的服药时间因通勤、加班或临时安排而变化时，后续提醒会根据您确认的实际时间进行调整。</p>
+
+                <h3>核心功能</h3>
+                <ul class="feature-list">
+                    <li>智能服药提醒，支持本地通知和闹钟提醒（iOS 26+）</li>
+                    <li>动态顺延：根据您确认的服药时间调整后续提醒</li>
+                    <li>多对象管理：为家人、宠物分别设置服药计划</li>
+                    <li>详细的服药历史记录和统计分析</li>
+                    <li>剩余药量追踪和补药提醒</li>
+                    <li>跨日处理：智能处理跨 midnight 的服药场景</li>
+                    <li>数据导出：支持 CSV 和 PDF 格式</li>
+                    <li>iCloud 同步：跨设备同步数据（Pro 版）</li>
+                    <li>小组件和灵动岛支持</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>常见问题</h2>
+
+                <div class="faq-item">
+                    <h4>Q: 什么是"动态顺延"？</h4>
+                    <p>A: 动态顺延是 DoseCue 的核心功能。当您在非计划时间确认服药后，后续的提醒时间会根据您设置的时间进行调整，而不是继续按照原计划时间提醒。这更符合真实生活场景。</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: 如何处理跨日的服药情况？</h4>
+                    <p>A: DoseCue 提供了完善的跨日处理机制。当任务跨越 midnight 时，系统根据您的设置处理并提供"继续昨天"或"结束今天"等选项，让您可以灵活处理。</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: 免费版和 Pro 版有什么区别？</h4>
+                    <p>A: 免费版支持 2 个启用药品和 1 个对象，包含动态顺延和本地通知功能，可查看最近 7 天历史。Pro 版解锁无限药品和对象、完整统计、iCloud 同步、小组件和更强的闹钟提醒。</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: 如何备份我的数据？</h4>
+                    <p>A: 您可以通过设置 > 数据导出功能，将服药记录导出为 CSV 或 PDF 格式进行备份。Pro 版用户还可以使用 iCloud 同步功能备份数据。</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: 提醒没有响怎么办？</h4>
+                    <p>A: 请检查：1) 系统设置中是否允许 DoseCue 发送通知；2) 是否开启了勿扰模式；3) 应用是否在后台运行。iOS 26 及以上版本还可以使用更强的闹钟提醒模式。</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>联系我们</h2>
+                <p>如果您遇到问题或有建议，欢迎通过以下方式联系我们：</p>
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="icon">📧</div>
+                        <h4>电子邮件</h4>
+                        <p>tianfi1@outlook.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">💬</div>
+                        <h4>反馈表单</h4>
+                        <p>应用内反馈</p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">⭐</div>
+                        <h4>App Store</h4>
+                        <p>留下评价</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>版本信息</h2>
+                <p><strong>当前版本：</strong>1.0 (18)</p>
+                <p><strong>系统要求：</strong>iOS 17.0 或更高版本</p>
+                <p><strong>闹钟提醒：</strong>iOS 26 或更高版本</p>
+                <p><strong>开发者：</strong>TFone</p>
+            </div>
+
+            <div class="card">
+                <h2>隐私政策</h2>
+                <p>DoseCue 重视您的隐私。您的服药计划和历史记录默认存储在本地设备上。我们不会收集任何个人数据。iCloud 同步功能使用 Apple 的 CloudKit 服务，数据传输和存储均受 Apple 隐私政策保护。</p>
+            </div>
+        </div>
+
+        <!-- 英文内容 -->
+        <div id="content-en">
+            <div class="card">
+                <h2>About DoseCue</h2>
+                <p>DoseCue is a smart medication reminder app designed for people who need long-term medication. It not only provides timely reminders but also supports <strong>dynamic rescheduling</strong> — when your dose time changes due to commuting, work, or last-minute plans, subsequent reminders adjust based on your confirmed dose time.</p>
+
+                <h3>Core Features</h3>
+                <ul class="feature-list">
+                    <li>Smart medication reminders with local notifications and alarm support (iOS 26+)</li>
+                    <li>Dynamic rescheduling: adjusts reminders based on your confirmed dose times</li>
+                    <li>Multi-owner management: set up medication plans for family members and pets</li>
+                    <li>Detailed medication history and statistical analysis</li>
+                    <li>Remaining quantity tracking and refill reminders</li>
+                    <li>Cross-day handling: intelligently manages dose scenarios crossing midnight</li>
+                    <li>Data export: supports CSV and PDF formats</li>
+                    <li>iCloud sync: cross-device data synchronization (Pro)</li>
+                    <li>Widgets and Live Activity support</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>FAQ</h2>
+
+                <div class="faq-item">
+                    <h4>Q: What is "dynamic rescheduling"?</h4>
+                    <p>A: Dynamic rescheduling is DoseCue's core feature. When you confirm a dose at an unscheduled time, subsequent reminder times adjust based on your confirmed time, rather than continuing to follow the original schedule. This better fits real-life scenarios.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: How does DoseCue handle cross-day scenarios?</h4>
+                    <p>A: DoseCue provides a comprehensive cross-day handling mechanism. When a task crosses midnight, the system processes it based on your settings and provides options like "Continue yesterday" or "End today" for flexible management.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: What's the difference between Free and Pro?</h4>
+                    <p>A: Free supports 2 active medications and 1 owner, includes dynamic rescheduling and local notifications, and shows the last 7 days of history. Pro unlocks unlimited medications and owners, full stats, iCloud sync, widgets, and stronger alarm reminders.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: How do I backup my data?</h4>
+                    <p>A: You can export your medication records as CSV or PDF files via Settings > Data Export. Pro users can also use iCloud sync to backup data.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: What if reminders don't work?</h4>
+                    <p>A: Please check: 1) Whether DoseCue is allowed to send notifications in system settings; 2) Whether Do Not Disturb mode is enabled; 3) Whether the app is running in the background. iOS 26 and later also supports stronger alarm-style reminders.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Contact Us</h2>
+                <p>If you encounter any issues or have suggestions, feel free to reach us through:</p>
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="icon">📧</div>
+                        <h4>Email</h4>
+                        <p>tianfi1@outlook.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">💬</div>
+                        <h4>Feedback</h4>
+                        <p>In-app feedback</p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">⭐</div>
+                        <h4>App Store</h4>
+                        <p>Leave a review</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Version Info</h2>
+                <p><strong>Current Version:</strong> 1.0 (18)</p>
+                <p><strong>Requirements:</strong> iOS 17.0 or later</p>
+                <p><strong>Alarm Reminders:</strong> iOS 26 or later</p>
+                <p><strong>Developer:</strong> TFone</p>
+            </div>
+
+            <div class="card">
+                <h2>Privacy Policy</h2>
+                <p>DoseCue values your privacy. Your medication plans and history are stored locally on your device by default. We do not collect any personal data. The iCloud sync feature uses Apple's CloudKit service, and all data transmission and storage are protected by Apple's privacy policies.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2026 DoseCue. All rights reserved.</p>
+            <p>Made with ❤️ for better medication management</p>
+        </footer>
+    </div>
+
+    <script>
+        function showChinese() {
+            document.getElementById('content-zh').style.display = 'block';
+            document.getElementById('content-en').style.display = 'none';
+            document.querySelectorAll('.language-toggle button')[0].classList.add('active');
+            document.querySelectorAll('.language-toggle button')[1].classList.remove('active');
+            document.documentElement.lang = 'zh-CN';
+        }
+
+        function showEnglish() {
+            document.getElementById('content-zh').style.display = 'none';
+            document.getElementById('content-en').style.display = 'block';
+            document.querySelectorAll('.language-toggle button')[0].classList.remove('active');
+            document.querySelectorAll('.language-toggle button')[1].classList.add('active');
+            document.documentElement.lang = 'en';
+        }
+    </script>
+</body>
+</html>
